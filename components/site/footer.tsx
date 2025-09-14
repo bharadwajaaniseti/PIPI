@@ -79,9 +79,6 @@ export function Footer() {
             <ul className="space-y-4">
               {[
                 { name: 'About Us', href: '/about' },
-                { name: 'Case Studies', href: '/case-studies' },
-                { name: 'Sustainability', href: '/sustainability' },
-                { name: 'Events', href: '/events' },
                 { name: 'News', href: '/news' },
                 { name: 'Contact', href: '/contact' },
               ].map((item) => (
@@ -106,31 +103,30 @@ export function Footer() {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-4 w-4 text-brand-teal mt-1 flex-shrink-0" />
                 <div className="text-sm text-slate-300">
-                  Unit 5, Industrial Estate<br />
-                  Manufacturing District<br />
-                  Manchester M1 5TG, UK
+                  10, Bardolph Street East<br />
+                  Leicester<br />
+                    LE4 6QJ, UK
                 </div>
               </div>
               
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-brand-teal flex-shrink-0" />
                 <a href="tel:+441234567890" className="text-sm text-slate-300 hover:text-brand-teal transition-colors">
-                  +44 (0) 123 456 7890
+                  +44 (0) 116 266 9242
                 </a>
               </div>
               
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-brand-teal flex-shrink-0" />
                 <a href="mailto:hello@pipiprint.co.uk" className="text-sm text-slate-300 hover:text-brand-teal transition-colors">
-                  hello@pipiprint.co.uk
+                  marketing@pipi.co.uk
                 </a>
               </div>
               
               <div className="flex items-start space-x-3">
                 <Clock className="h-4 w-4 text-brand-teal mt-1 flex-shrink-0" />
                 <div className="text-sm text-slate-300">
-                  Mon-Fri: 8:00 AM - 6:00 PM<br />
-                  Sat: 9:00 AM - 1:00 PM
+                  Mon-Fri: 9:00 AM - 5:30 PM
                 </div>
               </div>
             </div>

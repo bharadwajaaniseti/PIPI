@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   const milestones = [
-    { year: '1982', title: 'Company Founded', description: 'Started as a small printing business in Manchester' },
+    { year: '1982', title: 'Company Founded', description: 'Started as a small printing business in Leicester' },
     { year: '1995', title: 'Healthcare Focus', description: 'Specialized in pharmaceutical packaging solutions' },
     { year: '2008', title: 'GMP Certification', description: 'Achieved Good Manufacturing Practice certification' },
     { year: '2015', title: 'Sustainability Initiative', description: 'Launched comprehensive environmental program' },
@@ -227,7 +227,7 @@ export default function AboutPage() {
                 
                 <div className="space-y-6">
                   {[
-                    { year: '1982', title: 'Founded', desc: 'Started as a printing business in Manchester', color: 'from-brand-teal to-brand-emerald' },
+                    { year: '1982', title: 'Founded', desc: 'Started as a printing business in leicester', color: 'from-brand-teal to-brand-emerald' },
                     { year: '1995', title: 'Healthcare Focus', desc: 'Specialized in pharmaceutical packaging', color: 'from-brand-orange to-orange-500' },
                     { year: '2008', title: 'GMP Certified', desc: 'Achieved pharmaceutical grade certification', color: 'from-emerald-500 to-green-500' },
                     { year: '2024', title: 'Carbon Neutral', desc: 'Leading sustainability in packaging', color: 'from-teal-500 to-cyan-500' }

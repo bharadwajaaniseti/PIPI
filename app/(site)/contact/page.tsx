@@ -91,9 +91,8 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-charcoal mb-1">Address</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">
-                      Unit 5, Industrial Estate<br />
-                      Manufacturing District<br />
-                      Manchester M1 5TG<br />
+                      10, Bardolph Street East<br />
+                      Leicester LE4 6QJ<br />
                       United Kingdom
                     </p>
                   </div>
@@ -106,8 +105,8 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-charcoal mb-1">Phone</h3>
                     <p className="text-gray-600 text-sm">
-                      <a href="tel:+441234567890" className="hover:text-charcoal transition-colors">
-                        +44 (0) 123 456 7890
+                      <a href="tel: 0116 266 9242" className="hover:text-charcoal transition-colors">
+                        +44 (0) 116 266 9242
                       </a>
                     </p>
                   </div>
@@ -121,7 +120,7 @@ export default function ContactPage() {
                     <h3 className="font-semibold text-charcoal mb-1">Email</h3>
                     <p className="text-gray-600 text-sm">
                       <a href="mailto:hello@pipiprint.co.uk" className="hover:text-charcoal transition-colors">
-                        hello@pipiprint.co.uk
+                        marketing@pipi.co.uk
                       </a>
                     </p>
                   </div>
@@ -134,8 +133,8 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-charcoal mb-1">Business Hours</h3>
                     <p className="text-gray-600 text-sm">
-                      Monday - Friday: 8:00 AM - 6:00 PM<br />
-                      Saturday: 9:00 AM - 1:00 PM<br />
+                      Monday - Friday: 9:00 AM - 5:30 PM<br />
+                      Saturday: Closed<br />
                       Sunday: Closed
                     </p>
                   </div>
