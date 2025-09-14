@@ -7,6 +7,8 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { ArrowRight, Calendar, Search, X, Clock, Tag } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
+import dynamic from 'next/dynamic';
+const ClientDate = dynamic(() => import('@/components/ClientDate'), { ssr: false });
 
 type Article = any;
 type Category = any;
@@ -97,7 +99,7 @@ export default function NewsClient({ articles, categories }: { articles: Article
                     <div className="flex items-center justify-between text-xs md:text-sm text-gray-500 mb-3">
                       <div className="flex items-center">
                         <Calendar className="h-3 md:h-4 w-3 md:w-4 mr-1" />
-                        {formatDate(article.date)}
+                        <ClientDate date={article.date} />
                       </div>
                       <span>{article.readTime}</span>
                     </div>
@@ -155,9 +157,9 @@ export default function NewsClient({ articles, categories }: { articles: Article
                   </h1>
                   
                   <div className="flex flex-wrap items-center gap-4 text-sm">
-                    <div className="flex items-center">
+                      <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-2" />
-                      {formatDate(selectedArticle.date)}
+                      <ClientDate date={selectedArticle.date} />
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-2" />

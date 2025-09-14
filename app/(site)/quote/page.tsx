@@ -10,6 +10,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Checkbox } from '@/components/ui/checkbox';
 import { services } from '@/data/services';
 import { ArrowRight, ArrowLeft, Upload, CheckCircle } from 'lucide-react';
+import dynamic from 'next/dynamic';
+const ClientReference = dynamic(() => import('@/components/ClientReference'), { ssr: false });
 
 type FormData = {
   // Step 1: Product Type
@@ -109,11 +111,7 @@ export default function QuotePage() {
                 Thank you for your quote request. Our team will review your requirements 
                 and get back to you within 24 hours with a detailed proposal.
               </p>
-              <div className="bg-gray-50 rounded-lg p-4 mb-6">
-                <p className="text-sm text-gray-600">
-                  <strong>Reference:</strong> QT-{Date.now().toString().slice(-6)}
-                </p>
-              </div>
+              <ClientReference />
               <Button onClick={() => window.location.href = '/'} className="bg-charcoal text-white hover:bg-ink">
                 Return to Homepage
               </Button>

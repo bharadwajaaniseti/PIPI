@@ -7,6 +7,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { ArrowRight, Calendar, Search, Newspaper, TrendingUp, Award, Leaf, X, Clock, Tag } from 'lucide-react';
+import dynamic from 'next/dynamic';
+const ClientDate = dynamic(() => import('@/components/ClientDate'), { ssr: false });
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger, DialogClose } from '@/components/ui/dialog';
 import type { Metadata } from 'next';
 
@@ -310,7 +312,7 @@ export default function NewsPage() {
                     <div className="flex items-center justify-between text-xs md:text-sm text-gray-500 mb-3">
                       <div className="flex items-center">
                         <Calendar className="h-3 md:h-4 w-3 md:w-4 mr-1" />
-                        {formatDate(article.date)}
+                        <ClientDate date={article.date} />
                       </div>
                       <span>{article.readTime}</span>
                     </div>
@@ -380,9 +382,9 @@ export default function NewsPage() {
                   </h1>
                   
                   <div className="flex flex-wrap items-center gap-4 text-sm">
-                    <div className="flex items-center">
+                      <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-2" />
-                      {formatDate(selectedArticle.date)}
+                      <ClientDate date={selectedArticle.date} />
                     </div>
                     <div className="flex items-center">
                       <Clock className="h-4 w-4 mr-2" />
@@ -435,7 +437,7 @@ export default function NewsPage() {
                   <div className="mt-12 pt-8 border-t border-gray-200">
                     <div className="flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center">
                       <div className="text-sm text-gray-500">
-                        Published on {formatDate(selectedArticle.date)}
+                        Published on <ClientDate date={selectedArticle.date} />
                         {selectedArticle.author && (
                           <span> by {selectedArticle.author}</span>
                         )}
