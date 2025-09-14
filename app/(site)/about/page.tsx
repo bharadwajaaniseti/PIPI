@@ -162,35 +162,127 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story Section */}
-      <section className="py-16 bg-white">
-        <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="font-tenor text-4xl lg:text-5xl font-bold text-charcoal mb-6">
+      <section className="py-20 bg-gradient-to-br from-white via-brand-teal/5 to-white relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute top-20 -right-40 w-96 h-96 bg-gradient-to-br from-brand-teal/10 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 -left-40 w-96 h-96 bg-gradient-to-tr from-brand-emerald/10 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        
+        <div className="container relative z-10">
+          <div className="text-center mb-16 animate-fade-in-up">
+            <h2 className="font-tenor text-4xl lg:text-6xl font-bold text-charcoal mb-6">
               Our Story
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From humble beginnings to industry leadership, our journey has been defined by innovation, 
-              quality, and an unwavering commitment to our clients' success.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              A journey of innovation, dedication, and excellence that spans over four decades
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="space-y-8">
-              {milestones.map((milestone, index) => (
-                <div key={index} className="flex items-start space-x-6 group">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-lime to-emerald-400 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-sm font-bold text-charcoal">{milestone.year}</span>
-                    </div>
-                  </div>
-                  <div className="flex-1 bg-white rounded-2xl p-6 shadow-lg border border-gray-100 group-hover:shadow-xl transition-all duration-300">
-                    <h3 className="font-tenor text-xl font-bold text-charcoal mb-2 group-hover:text-brand-teal transition-colors">
-                      {milestone.title}
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
+            {/* Story Content */}
+            <div className="space-y-8 animate-fade-in-up">
+              <div className="space-y-6">
+                <div className="relative">
+                  <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-brand-teal to-brand-emerald rounded-full"></div>
+                  <div className="pl-8">
+                    <h3 className="font-tenor text-2xl font-bold text-charcoal mb-4">
+                      The PiPi Philosophy
                     </h3>
-                    <p className="text-gray-600">{milestone.description}</p>
+                    <blockquote className="text-xl italic text-brand-teal mb-6 font-medium">
+                      "Each and every job receives the same attention to detail and the same assurance of quality, from start to finish."
+                    </blockquote>
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                      With a dedicated team of professionals and state-of-the-art print technology, we devote skill, care and valued experience to every job we produce. Our commitment to excellence has been unwavering since our founding in 1982.
+                    </p>
+                    <p className="text-gray-700 leading-relaxed">
+                      We work very closely with our customers, however large or small, ensuring that they are aware of the options available, opportunities for improvements and the most efficient and effective methods of progressing their projects to the printing presses.
+                    </p>
                   </div>
                 </div>
-              ))}
+              </div>
+
+              {/* Key Differentiators */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="w-12 h-12 bg-gradient-to-br from-brand-teal to-brand-emerald rounded-xl flex items-center justify-center mb-4">
+                    <Users className="h-6 w-6 text-white" />
+                  </div>
+                  <h4 className="font-tenor text-lg font-bold text-charcoal mb-2">Personal Service</h4>
+                  <p className="text-sm text-gray-600">Our customers deal with a named member of staff who ensures the initial brief is understood and be accountable for quality and delivery.</p>
+                </div>
+                
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="w-12 h-12 bg-gradient-to-br from-brand-orange to-orange-500 rounded-xl flex items-center justify-center mb-4">
+                    <Target className="h-6 w-6 text-white" />
+                  </div>
+                  <h4 className="font-tenor text-lg font-bold text-charcoal mb-2">Expert Guidance</h4>
+                  <p className="text-sm text-gray-600">We provide full support on choice of materials, reprographic methods and utilization of the most effective technology for cost-effective results.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Visual Timeline */}
+            <div className="relative animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+              <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/20">
+                <h3 className="font-tenor text-2xl font-bold text-charcoal mb-8 text-center">Our Journey</h3>
+                
+                <div className="space-y-6">
+                  {[
+                    { year: '1982', title: 'Founded', desc: 'Started as a printing business in Manchester', color: 'from-brand-teal to-brand-emerald' },
+                    { year: '1995', title: 'Healthcare Focus', desc: 'Specialized in pharmaceutical packaging', color: 'from-brand-orange to-orange-500' },
+                    { year: '2008', title: 'GMP Certified', desc: 'Achieved pharmaceutical grade certification', color: 'from-emerald-500 to-green-500' },
+                    { year: '2024', title: 'Carbon Neutral', desc: 'Leading sustainability in packaging', color: 'from-teal-500 to-cyan-500' }
+                  ].map((milestone, index) => (
+                    <div key={index} className="flex items-center space-x-4 group">
+                      <div className={`w-16 h-16 bg-gradient-to-br ${milestone.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}>
+                        <span className="text-sm font-bold text-white">{milestone.year}</span>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-tenor text-lg font-bold text-charcoal group-hover:text-brand-teal transition-colors">
+                          {milestone.title}
+                        </h4>
+                        <p className="text-sm text-gray-600">{milestone.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Floating Elements */}
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-brand-teal rounded-full animate-bounce opacity-60"></div>
+              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-brand-emerald rounded-full animate-bounce opacity-60" style={{ animationDelay: '1s' }}></div>
+            </div>
+          </div>
+
+          {/* Philosophy Quote Section */}
+          <div className="text-center max-w-4xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+            <div className="bg-gradient-to-br from-charcoal to-ink rounded-3xl p-12 text-white relative overflow-hidden">
+              {/* Background Pattern */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-brand-teal/10 rounded-full blur-2xl"></div>
+              <div className="absolute bottom-0 left-0 w-40 h-40 bg-brand-emerald/10 rounded-full blur-2xl"></div>
+              
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-teal to-brand-emerald rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <Factory className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="font-tenor text-3xl font-bold mb-6">42+ Years of Excellence</h3>
+                <p className="text-xl text-gray-300 leading-relaxed mb-8">
+                  From a small printing business to a leading packaging partner, our journey has been defined by 
+                  unwavering commitment to quality, innovation, and customer success. We don't just print packaging - 
+                  we craft solutions that protect your products and elevate your brand.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link href="/services">
+                    <Button size="lg" className="bg-brand-teal text-white hover:bg-brand-emerald hover:scale-105 transition-all duration-300">
+                      Explore Our Services
+                    </Button>
+                  </Link>
+                  <Link href="/contact">
+                    <Button size="lg" variant="outline" className="text-black over:bg-brand-emerald hover:scale-105 transition-all duration-300 hover:text-charcoal">
+                      Start Your Project
+                    </Button>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
