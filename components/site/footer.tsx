@@ -24,11 +24,11 @@ export function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-8">
               <img 
-                src="/pipi-logo.png" 
+                src="/pipi%20logo.png" 
                 alt="PiPi Print & Packaging" 
-                className="h-12 w-auto"
+                className="h-14 w-auto"
               />
-              <div>
+              <div className="hidden sm:block">
                 <span className="font-display text-2xl font-bold">PiPi</span>
                 <div className="text-sm text-slate-400 -mt-1">Print & Packaging</div>
               </div>

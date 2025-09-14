@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -33,13 +34,18 @@ export function Header() {
         icon: service.icon
       }))
     },
-    { name: 'Case Studies', href: '/case-studies' },
-    { name: 'Events', href: '/events' },
-    { name: 'Sustainability', href: '/sustainability' },
-    { name: 'About', href: '/about' },
+  // Case Studies and Events removed per request
+  { name: 'About', href: '/about' },
     { name: 'News', href: '/news' },
     { name: 'Contact', href: '/contact' },
   ];
+
+  const pathname = usePathname() || '/';
+
+  const isActive = (href: string, hasDropdown?: boolean) => {
+    if (hasDropdown) return pathname.startsWith(href);
+    return pathname === href;
+  };
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -48,7 +54,7 @@ export function Header() {
         : 'bg-transparent'
     }`}>
       <nav className="container">
-        <div className="flex items-center justify-between h-20">
+  <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center group">
@@ -70,12 +76,15 @@ export function Header() {
                   {item.hasDropdown ? (
                     <div className="relative">
                       <button 
-                        className="flex items-center px-4 py-2 text-slate-700 hover:text-brand-teal font-medium transition-colors rounded-lg hover:bg-slate-100/50"
+                        className={`flex flex-col items-center px-4 py-2 font-medium transition-colors rounded-lg hover:bg-slate-100/50 ${isActive(item.href, true) ? 'text-brand-teal' : 'text-slate-700 hover:text-brand-teal'}`}
                         onMouseEnter={() => setServicesOpen(true)}
                         onMouseLeave={() => setServicesOpen(false)}
                       >
-                        {item.name}
-                        <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
+                        <div className="flex items-center">
+                          <span>{item.name}</span>
+                          <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
+                        </div>
+                        <span className={`mt-2 block h-0.5 rounded-full transition-all ${isActive(item.href, true) ? 'w-6 bg-gradient-to-r from-brand-teal to-brand-emerald opacity-100' : 'w-0 bg-transparent'}`}></span>
                       </button>
                       {servicesOpen && (
                         <div 
@@ -108,12 +117,15 @@ export function Header() {
                       )}
                     </div>
                   ) : (
-                    <Link
-                      href={item.href}
-                      className="px-4 py-2 text-slate-700 hover:text-brand-teal font-medium transition-colors rounded-lg hover:bg-slate-100/50"
-                    >
-                      {item.name}
-                    </Link>
+                    <div className="flex flex-col items-center">
+                      <Link
+                        href={item.href}
+                        className={`px-4 py-2 font-medium transition-colors rounded-lg ${isActive(item.href) ? 'text-brand-teal' : 'text-slate-700 hover:text-brand-teal'}`}
+                      >
+                        {item.name}
+                      </Link>
+                      <span className={`mt-2 block h-0.5 rounded-full transition-all ${isActive(item.href) ? 'w-6 bg-gradient-to-r from-brand-teal to-brand-emerald' : 'w-0 bg-transparent'}`}></span>
+                    </div>
                   )}
                 </div>
               ))}
@@ -125,11 +137,6 @@ export function Header() {
             <Link href="/quote">
               <Button className="btn-primary">
                 Get Quote
-              </Button>
-            </Link>
-            <Link href="/events">
-              <Button className="btn-secondary">
-                Book Meeting
               </Button>
             </Link>
           </div>
@@ -176,11 +183,6 @@ export function Header() {
                     <Link href="/quote" onClick={() => setIsOpen(false)}>
                       <Button className="w-full btn-primary">
                         Get Quote
-                      </Button>
-                    </Link>
-                    <Link href="/events" onClick={() => setIsOpen(false)}>
-                      <Button className="w-full btn-secondary">
-                        Book Meeting
                       </Button>
                     </Link>
                   </div>

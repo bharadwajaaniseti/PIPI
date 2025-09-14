@@ -7,7 +7,7 @@ import { ArrowRight, Award, Leaf, Shield, Zap } from 'lucide-react';
 
 export function HeroSplit() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-teal-50">
+    <section className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-teal-50">
       {/* Background Pattern */}
       <div className="absolute inset-0 hero-pattern opacity-30"></div>
       
