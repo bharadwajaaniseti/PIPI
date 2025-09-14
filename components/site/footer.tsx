@@ -11,7 +11,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-slate-dark to-deep-teal text-white">
+    <footer className="bg-gradient-to-br from-charcoal-base to-navy-base text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -26,11 +26,11 @@ export function Footer() {
                 PiPi Print & Packaging
               </span>
             </div>
-            <p className="text-gray-300 mb-6 leading-relaxed">
+            <p className="text-crisp-white/80 mb-6 leading-relaxed">
               Healthcare & Decorative Packaging Specialists. Delivering quality, 
               sustainability, and innovation since 1982.
             </p>
-            <div className="space-y-2 text-sm text-gray-400">
+            <div className="space-y-2 text-sm text-crisp-white/60">
               <p>42,000 sq ft facility</p>
               <p>In-house reproduction</p>
               <p>Complete finishing services</p>
@@ -45,7 +45,7 @@ export function Footer() {
                 <li key={service.slug}>
                   <Link 
                     href={`/services/${service.slug}`}
-                    className="text-gray-300 hover:text-electric-green transition-colors text-sm"
+                    className="text-crisp-white/80 hover:text-lime-accent transition-colors text-sm hover:translate-x-1 inline-block duration-200"
                   >
                     {service.title}
                   </Link>
@@ -59,32 +59,32 @@ export function Footer() {
             <h3 className="font-tenor text-lg font-semibold mb-6">Company</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/about" className="text-gray-300 hover:text-electric-green transition-colors text-sm">
+                <Link href="/about" className="text-crisp-white/80 hover:text-lime-accent transition-colors text-sm hover:translate-x-1 inline-block duration-200">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/case-studies" className="text-gray-300 hover:text-electric-green transition-colors text-sm">
+                <Link href="/case-studies" className="text-crisp-white/80 hover:text-lime-accent transition-colors text-sm hover:translate-x-1 inline-block duration-200">
                   Case Studies
                 </Link>
               </li>
               <li>
-                <Link href="/sustainability" className="text-gray-300 hover:text-electric-green transition-colors text-sm">
+                <Link href="/sustainability" className="text-crisp-white/80 hover:text-lime-accent transition-colors text-sm hover:translate-x-1 inline-block duration-200">
                   Sustainability
                 </Link>
               </li>
               <li>
-                <Link href="/events" className="text-gray-300 hover:text-electric-green transition-colors text-sm">
+                <Link href="/events" className="text-crisp-white/80 hover:text-lime-accent transition-colors text-sm hover:translate-x-1 inline-block duration-200">
                   Events
                 </Link>
               </li>
               <li>
-                <Link href="/news" className="text-gray-300 hover:text-electric-green transition-colors text-sm">
+                <Link href="/news" className="text-crisp-white/80 hover:text-lime-accent transition-colors text-sm hover:translate-x-1 inline-block duration-200">
                   News
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-300 hover:text-electric-green transition-colors text-sm">
+                <Link href="/contact" className="text-crisp-white/80 hover:text-lime-accent transition-colors text-sm hover:translate-x-1 inline-block duration-200">
                   Contact
                 </Link>
               </li>
@@ -94,19 +94,19 @@ export function Footer() {
           {/* Contact & Legal */}
           <div>
             <h3 className="font-tenor text-lg font-semibold mb-6">Contact</h3>
-            <div className="space-y-3 text-sm text-gray-300">
+            <div className="space-y-3 text-sm text-crisp-white/80">
               <p>
                 Unit 5, Industrial Estate<br />
                 Manufacturing District<br />
                 Manchester M1 5TG, UK
               </p>
               <p>
-                <a href="tel:+441234567890" className="hover:text-electric-green transition-colors">
+                <a href="tel:+441234567890" className="hover:text-lime-accent transition-colors">
                   +44 (0) 123 456 7890
                 </a>
               </p>
               <p>
-                <a href="mailto:hello@pipiprint.co.uk" className="hover:text-electric-green transition-colors">
+                <a href="mailto:hello@pipiprint.co.uk" className="hover:text-lime-accent transition-colors">
                   hello@pipiprint.co.uk
                 </a>
               </p>
@@ -117,13 +117,13 @@ export function Footer() {
               <div className="space-y-2">
                 <Link 
                   href="/quote"
-                  className="block text-sm bg-electric-green text-white px-3 py-2 rounded hover:bg-electric-green/90 transition-colors text-center"
+                  className="block text-sm bg-lime-accent text-charcoal-base px-3 py-2 rounded hover:bg-sunny-yellow hover:scale-105 transition-all duration-200 text-center font-medium"
                 >
                   Get a Quote
                 </Link>
                 <Link 
                   href="/events"
-                  className="block text-sm border border-gray-600 px-3 py-2 rounded hover:border-electric-green transition-colors text-center"
+                  className="block text-sm border border-crisp-white/30 px-3 py-2 rounded hover:border-lime-accent hover:bg-lime-accent/10 transition-all duration-200 text-center"
                 >
                   Book Meeting
                 </Link>
@@ -133,36 +133,36 @@ export function Footer() {
         </div>
 
         {/* Certifications Strip */}
-        <div className="mt-16 pt-8 border-t border-gray-700">
+        <div className="mt-16 pt-8 border-t border-crisp-white/20">
           <div className="mb-8">
             <h4 className="font-tenor text-lg font-semibold mb-6 text-center">
               Certifications & Partnerships
             </h4>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {certifications.map((cert, index) => (
-                <div key={index} className="text-center">
-                  <div className="bg-gray-800 rounded-lg p-4 mb-2 h-16 flex items-center justify-center">
-                    <span className="text-electric-green font-medium text-sm">{cert.name}</span>
+                <div key={index} className="text-center group">
+                  <div className="bg-crisp-white/10 rounded-lg p-4 mb-2 h-16 flex items-center justify-center group-hover:bg-crisp-white/20 group-hover:scale-105 transition-all duration-300">
+                    <span className="text-lime-accent font-medium text-sm">{cert.name}</span>
                   </div>
-                  <p className="text-xs text-gray-400">{cert.description}</p>
+                  <p className="text-xs text-crisp-white/60">{cert.description}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Bottom Bar */}
-          <div className="flex flex-col sm:flex-row justify-between items-center pt-8 border-t border-gray-700 space-y-4 sm:space-y-0">
-            <p className="text-sm text-gray-400">
+          <div className="flex flex-col sm:flex-row justify-between items-center pt-8 border-t border-crisp-white/20 space-y-4 sm:space-y-0">
+            <p className="text-sm text-crisp-white/60">
               © 2024 PiPi Print & Packaging Ltd. All rights reserved.
             </p>
             <div className="flex space-x-6">
-              <Link href="/legal/privacy" className="text-sm text-gray-400 hover:text-electric-green transition-colors">
+              <Link href="/legal/privacy" className="text-sm text-crisp-white/60 hover:text-lime-accent transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/legal/terms" className="text-sm text-gray-400 hover:text-electric-green transition-colors">
+              <Link href="/legal/terms" className="text-sm text-crisp-white/60 hover:text-lime-accent transition-colors">
                 Terms of Service
               </Link>
-              <Link href="/legal/cookies" className="text-sm text-gray-400 hover:text-electric-green transition-colors">
+              <Link href="/legal/cookies" className="text-sm text-crisp-white/60 hover:text-lime-accent transition-colors">
                 Cookies
               </Link>
             </div>

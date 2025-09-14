@@ -32,7 +32,7 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+    <header className="sticky top-0 z-50 bg-crisp-white/95 backdrop-blur-md border-b border-verdant-green/10 shadow-sm">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -43,7 +43,7 @@ export function Header() {
                 alt="PiPi Print & Packaging" 
                 className="h-10 w-auto"
               />
-              <span className="font-tenor text-xl font-bold text-slate-dark">
+              <span className="font-tenor text-xl font-bold text-charcoal-base">
                 PiPi Print & Packaging
               </span>
             </Link>
@@ -57,7 +57,7 @@ export function Header() {
                   {item.hasDropdown ? (
                     <div className="relative">
                       <button 
-                        className="flex items-center text-gray-600 hover:text-deep-teal font-medium transition-colors"
+                        className="flex items-center text-charcoal-base/70 hover:text-verdant-green font-medium transition-colors focus:outline-none focus:text-verdant-green"
                         onMouseEnter={() => setServicesOpen(true)}
                         onMouseLeave={() => setServicesOpen(false)}
                       >
@@ -66,7 +66,7 @@ export function Header() {
                       </button>
                       {servicesOpen && (
                         <div 
-                          className="absolute top-full left-0 w-80 bg-white rounded-lg shadow-xl border border-gray-100 p-6 z-50"
+                          className="absolute top-full left-0 w-80 bg-crisp-white rounded-lg shadow-xl border border-verdant-green/10 p-6 z-50"
                           onMouseEnter={() => setServicesOpen(true)}
                           onMouseLeave={() => setServicesOpen(false)}
                         >
@@ -75,12 +75,12 @@ export function Header() {
                               <Link
                                 key={child.name}
                                 href={child.href}
-                                className="block p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                                className="block p-3 rounded-lg hover:bg-verdant-green/5 hover:scale-105 transition-all duration-200"
                               >
-                                <div className="font-medium text-slate-dark mb-1">
+                                <div className="font-medium text-charcoal-base mb-1">
                                   {child.name}
                                 </div>
-                                <div className="text-sm text-gray-600">
+                                <div className="text-sm text-charcoal-base/70">
                                   {child.description}
                                 </div>
                               </Link>
@@ -92,7 +92,7 @@ export function Header() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="text-gray-600 hover:text-deep-teal font-medium transition-colors"
+                      className="text-charcoal-base/70 hover:text-verdant-green font-medium transition-colors focus:outline-none focus:text-verdant-green"
                     >
                       {item.name}
                     </Link>
@@ -105,12 +105,12 @@ export function Header() {
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
             <Link href="/quote">
-              <Button className="bg-deep-teal text-white hover:bg-ocean-blue">
+              <Button className="btn-primary">
                 Get a Quote
               </Button>
             </Link>
             <Link href="/events">
-              <Button variant="outline" className="border-vibrant-cyan text-vibrant-cyan hover:bg-vibrant-cyan hover:text-white">
+              <Button variant="outline" className="border-verdant-green text-verdant-green hover:bg-verdant-green hover:text-white hover:scale-105 transition-all duration-200">
                 Book Meeting
               </Button>
             </Link>
@@ -131,7 +131,7 @@ export function Header() {
                       <div key={item.name}>
                         <Link
                           href={item.href}
-                          className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-deep-teal hover:bg-gray-50 rounded-md"
+                          className="block px-3 py-2 text-base font-medium text-charcoal-base/70 hover:text-verdant-green hover:bg-verdant-green/5 rounded-md transition-all duration-200"
                           onClick={() => setIsOpen(false)}
                         >
                           {item.name}
@@ -142,7 +142,7 @@ export function Header() {
                               <Link
                                 key={child.name}
                                 href={child.href}
-                                className="block px-3 py-2 text-sm text-gray-500 hover:text-deep-teal hover:bg-gray-50 rounded-md"
+                                className="block px-3 py-2 text-sm text-charcoal-base/60 hover:text-verdant-green hover:bg-verdant-green/5 rounded-md transition-all duration-200"
                                 onClick={() => setIsOpen(false)}
                               >
                                 {child.name}
@@ -155,12 +155,12 @@ export function Header() {
                   </div>
                   <div className="mt-8 space-y-4">
                     <Link href="/quote" onClick={() => setIsOpen(false)}>
-                      <Button className="w-full bg-deep-teal text-white hover:bg-ocean-blue">
+                      <Button className="w-full btn-primary">
                         Get a Quote
                       </Button>
                     </Link>
                     <Link href="/events" onClick={() => setIsOpen(false)}>
-                      <Button variant="outline" className="w-full border-vibrant-cyan text-vibrant-cyan hover:bg-vibrant-cyan hover:text-white">
+                      <Button variant="outline" className="w-full border-verdant-green text-verdant-green hover:bg-verdant-green hover:text-white">
                         Book Meeting
                       </Button>
                     </Link>

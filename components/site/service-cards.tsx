@@ -9,13 +9,13 @@ import { ArrowRight } from 'lucide-react';
 
 export function ServiceCards() {
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-crisp-white">
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="font-tenor text-4xl lg:text-5xl font-bold text-slate-dark mb-6">
+          <h2 className="font-tenor text-4xl lg:text-5xl font-bold text-charcoal-base mb-6">
             Complete Packaging Solutions
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-charcoal-base/70 max-w-3xl mx-auto">
             From concept to delivery, we provide end-to-end packaging services 
             with uncompromising quality and attention to detail.
           </p>
@@ -23,15 +23,15 @@ export function ServiceCards() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service) => (
-            <Card key={service.slug} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md hover:-translate-y-2">
+            <Card key={service.slug} className="group card-hover border-0 shadow-md bg-crisp-white">
               <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-electric-green/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-electric-green/20 transition-colors">
+                <div className="w-12 h-12 bg-verdant-green/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-verdant-green/20 group-hover:scale-110 transition-all duration-300">
                   <span className="text-2xl">{service.icon}</span>
                 </div>
-                <CardTitle className="font-tenor text-xl text-slate-dark group-hover:text-vibrant-cyan transition-colors">
+                <CardTitle className="font-tenor text-xl text-charcoal-base group-hover:text-verdant-green transition-colors">
                   {service.title}
                 </CardTitle>
-                <CardDescription className="text-gray-600 leading-relaxed">
+                <CardDescription className="text-charcoal-base/70 leading-relaxed">
                   {service.intro}
                 </CardDescription>
               </CardHeader>
@@ -41,7 +41,7 @@ export function ServiceCards() {
                     {service.features.slice(0, 3).map((feature, index) => (
                       <span
                         key={index}
-                        className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-md"
+                        className="text-xs bg-off-white text-charcoal-base/80 px-2 py-1 rounded-md border border-verdant-green/10"
                       >
                         {feature}
                       </span>
@@ -50,7 +50,7 @@ export function ServiceCards() {
                   <Link href={`/services/${service.slug}`}>
                     <Button 
                       variant="ghost" 
-                      className="w-full justify-between text-slate-dark hover:text-vibrant-cyan hover:bg-vibrant-cyan/5 group/btn"
+                      className="w-full justify-between text-charcoal-base hover:text-verdant-green hover:bg-verdant-green/5 group/btn hover:scale-105 transition-all duration-200"
                     >
                       Learn More
                       <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
@@ -64,7 +64,7 @@ export function ServiceCards() {
 
         <div className="text-center mt-12">
           <Link href="/services">
-            <Button size="lg" className="bg-deep-teal text-white hover:bg-ocean-blue">
+            <Button size="lg" className="btn-primary">
               View All Services
             </Button>
           </Link>
