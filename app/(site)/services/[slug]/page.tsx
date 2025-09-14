@@ -1,4 +1,6 @@
 import React from 'react';
+import fs from 'fs';
+import path from 'path';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Button } from '@/components/ui/button';
@@ -119,11 +121,31 @@ export default function ServicePage({ params }: Props) {
             <div className="relative animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               {/* Main Image with Overlay */}
               <div className="relative group">
-                <img
-                  src={service.gallery[0]}
-                  alt={service.title}
-                  className="w-full h-96 object-cover rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-105"
-                />
+                {
+                  (() => {
+                    // Try to load images from public/<slug>/, fallback to service.gallery
+                    let galleryImages: string[] = [];
+                    try {
+                      const publicDir = path.join(process.cwd(), 'public', service.slug);
+                      if (fs.existsSync(publicDir)) {
+                        const files = fs.readdirSync(publicDir).filter((f) => /\.(jpe?g|png|webp|avif|gif)$/i.test(f));
+                        galleryImages = files.map((f) => `/${service.slug}/${f}`);
+                      }
+                    } catch (e) {
+                      galleryImages = [];
+                    }
+
+                    const mainSrc = galleryImages.length ? galleryImages[0] : service.gallery[0];
+
+                    return (
+                      <img
+                        src={mainSrc}
+                        alt={service.title}
+                        className="w-full h-96 object-cover rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-105"
+                      />
+                    );
+                  })()
+                }
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
                 
                 {/* Floating Elements */}
@@ -133,14 +155,37 @@ export default function ServicePage({ params }: Props) {
               
               {/* Gallery Preview */}
               <div className="grid grid-cols-3 gap-2 mt-4">
-                {service.gallery.slice(1, 4).map((image, index) => (
-                  <img
-                    key={index}
-                    src={image}
-                    alt={`${service.title} ${index + 2}`}
-                    className="w-full h-24 object-cover rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer shadow-md"
-                  />
-                ))}
+                {
+                  (() => {
+                    try {
+                      const publicDir = path.join(process.cwd(), 'public', service.slug);
+                      let galleryImages: string[] = [];
+                      if (fs.existsSync(publicDir)) {
+                        const files = fs.readdirSync(publicDir).filter((f) => /\.(jpe?g|png|webp|avif|gif)$/i.test(f));
+                        galleryImages = files.map((f) => `/${service.slug}/${f}`);
+                      }
+
+                      const preview = galleryImages.length ? galleryImages.slice(1, 4) : service.gallery.slice(1, 4);
+                      return preview.map((image, index) => (
+                        <img
+                          key={index}
+                          src={image}
+                          alt={`${service.title} ${index + 2}`}
+                          className="w-full h-24 object-cover rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer shadow-md"
+                        />
+                      ));
+                    } catch (e) {
+                      return service.gallery.slice(1, 4).map((image, index) => (
+                        <img
+                          key={index}
+                          src={image}
+                          alt={`${service.title} ${index + 2}`}
+                          className="w-full h-24 object-cover rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer shadow-md"
+                        />
+                      ));
+                    }
+                  })()
+                }
               </div>
             </div>
           </div>
@@ -252,6 +297,7 @@ export default function ServicePage({ params }: Props) {
       </section>
 
       {/* Enhanced Gallery */}
+      {/* Enhanced Gallery */}
       <section className="py-16 bg-white">
         <div className="container">
           <div className="text-center mb-12 animate-fade-in-up">
@@ -263,28 +309,41 @@ export default function ServicePage({ params }: Props) {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {service.gallery.map((image, index) => (
-              <div key={index} className="relative group overflow-hidden rounded-2xl animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                <img
-                  src={image}
-                  alt={`${service.title} example ${index + 1}`}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h4 className="font-semibold">{service.title} Project {index + 1}</h4>
-                  <p className="text-sm text-gray-200">Premium quality showcase</p>
-                </div>
-                
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Button variant="secondary" size="sm" className="bg-white/90 text-charcoal hover:bg-white">
-                    View Details
-                  </Button>
-                </div>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {
+              (() => {
+                try {
+                  const publicDir = path.join(process.cwd(), 'public', service.slug);
+                  let galleryImages: string[] = [];
+                  if (fs.existsSync(publicDir)) {
+                    const files = fs.readdirSync(publicDir).filter((f) => /\.(jpe?g|png|webp|avif|gif)$/i.test(f));
+                    galleryImages = files.map((f) => `/${service.slug}/${f}`);
+                  }
+
+                  const imagesToRender = galleryImages.length ? galleryImages : service.gallery;
+
+                  return imagesToRender.map((image, index) => (
+                    <div key={index} className="relative group overflow-hidden rounded-xl animate-fade-in-up shadow-md hover:shadow-xl transition-all duration-300" style={{ animationDelay: `${index * 0.05}s` }}>
+                      <img
+                        src={image}
+                        alt={`${service.title} example ${index + 1}`}
+                        className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  ));
+                } catch (e) {
+                  return service.gallery.map((image, index) => (
+                    <div key={index} className="relative group overflow-hidden rounded-xl animate-fade-in-up shadow-md hover:shadow-xl transition-all duration-300" style={{ animationDelay: `${index * 0.05}s` }}>
+                      <img
+                        src={image}
+                        alt={`${service.title} example ${index + 1}`}
+                        className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  ));
+                }
+              })()
+            }
           </div>
         </div>
       </section>
@@ -343,7 +402,7 @@ export default function ServicePage({ params }: Props) {
                 </Button>
               </Link>
               <Link href="/contact">
-                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-charcoal hover:scale-105 transition-all duration-300 px-10 py-4 rounded-xl font-semibold">
+                <Button size="lg" variant="outline" className="bg-gradient-to-r from-brand-teal to-brand-emerald text-white hover:from-brand-emerald hover:to-brand-teal hover:scale-105 transition-all duration-300 px-10 py-4 rounded-xl font-semibold shadow-xl group">
                   Contact Our Team
                 </Button>
               </Link>
@@ -355,11 +414,11 @@ export default function ServicePage({ params }: Props) {
               <div className="flex flex-col sm:flex-row gap-4 justify-center text-sm">
                 <div className="flex items-center justify-center gap-2">
                   <span className="w-2 h-2 bg-brand-teal rounded-full"></span>
-                  <span>Call: +44 (0) 1234 567890</span>
+                  <span>Call: +44 (0) 116 266 9242 </span>
                 </div>
                 <div className="flex items-center justify-center gap-2">
                   <span className="w-2 h-2 bg-brand-emerald rounded-full"></span>
-                  <span>Email: hello@pipipackaging.com</span>
+                  <span>Email: marketing@pipi.co.uk</span>
                 </div>
               </div>
             </div>
