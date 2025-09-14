@@ -1,0 +1,60 @@
+{
+  "upcoming": [
+    {
+      "id": "pharmapack-2024",
+      "title": "Pharmapack Europe 2024",
+      "city": "Paris",
+      "country": "France",
+      "venue": "Paris Expo Porte de Versailles",
+      "start": "2024-02-07T09:00:00Z",
+      "end": "2024-02-08T18:00:00Z",
+      "url": "https://www.pharmapack.com/",
+      "description": "Europe's leading pharmaceutical packaging event. Visit us at Stand B47 to discover our latest healthcare packaging innovations."
+    },
+    {
+      "id": "luxe-pack-monaco-2024",
+      "title": "Luxe Pack Monaco",
+      "city": "Monaco",
+      "country": "Monaco",
+      "venue": "Grimaldi Forum",
+      "start": "2024-10-02T10:00:00Z",
+      "end": "2024-10-04T18:00:00Z",
+      "url": "https://www.luxepack.com/",
+      "description": "Premier luxury packaging event. Showcasing our decorative packaging capabilities and sustainable solutions."
+    },
+    {
+      "id": "pack-expo-2024",
+      "title": "Pack Expo International",
+      "city": "Chicago",
+      "country": "USA",
+      "venue": "McCormick Place",
+      "start": "2024-11-03T09:00:00Z",
+      "end": "2024-11-06T17:00:00Z",
+      "url": "https://www.packexpo.com/",
+      "description": "North America's most comprehensive packaging event. Meet our team to discuss your packaging challenges."
+    },
+    {
+      "id": "interpack-2025",
+      "title": "Interpack 2025",
+      "city": "Düsseldorf",
+      "country": "Germany",
+      "venue": "Messe Düsseldorf",
+      "start": "2025-05-08T09:00:00Z",
+      "end": "2025-05-14T18:00:00Z",
+      "url": "https://www.interpack.com/",
+      "description": "The world's most important trade fair for packaging and related processing industries."
+    }
+  ],
+  "past": [
+    {
+      "id": "pharmapack-2023",
+      "title": "Pharmapack Europe 2023",
+      "city": "Paris",
+      "country": "France",
+      "start": "2023-02-01T09:00:00Z",
+      "end": "2023-02-02T18:00:00Z",
+      "summary": "Successfully showcased our new child-resistant packaging solutions. Generated 150+ qualified leads.",
+      "image": "https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg"
+    }
+  ]
+}

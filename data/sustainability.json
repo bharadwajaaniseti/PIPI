@@ -1,0 +1,24 @@
+{
+  "stats": {
+    "treesPlanted": 12450,
+    "co2CapturedTons": 89.3,
+    "updatedAt": "2024-01-15T10:30:00Z"
+  },
+  "initiatives": [
+    {
+      "title": "Woodland Trust Partnership",
+      "description": "For every ton of paper we use, we plant trees through our partnership with the Woodland Trust.",
+      "impact": "12,450 trees planted since 2020"
+    },
+    {
+      "title": "Carbon Capture Program",
+      "description": "Our manufacturing processes are carbon neutral through renewable energy and offset programs.",
+      "impact": "89.3 tons CO₂ captured this year"
+    },
+    {
+      "title": "Circular Materials",
+      "description": "We prioritize recyclable, biodegradable, and FSC-certified materials in all our packaging solutions.",
+      "impact": "95% recyclable material usage"
+    }
+  ]
+}
