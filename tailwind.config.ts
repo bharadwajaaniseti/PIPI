@@ -61,6 +61,7 @@ const config: Config = {
         'deep-purple': '#7C3AED',
         'slate-dark': '#1E293B',
         'slate-light': '#F8FAFC',
+        'charcoal': '#111318',
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
