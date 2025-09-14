@@ -51,21 +51,13 @@ export function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center space-x-3 group">
+            <Link href="/" className="flex items-center group">
               <div className="relative">
                 <img 
-                  src="/pipi-logo.png" 
+                  src="/pipi%20logo.png" 
                   alt="PiPi Print & Packaging" 
-                  className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+                  className="h-40 w-auto transition-transform duration-300 group-hover:scale-105"
                 />
-              </div>
-              <div className="hidden sm:block">
-                <span className="font-display text-2xl font-bold text-slate-900">
-                  PiPi
-                </span>
-                <div className="text-sm text-slate-600 -mt-1">
-                  Print & Packaging
-                </div>
               </div>
             </Link>
           </div>
