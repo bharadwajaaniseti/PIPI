@@ -106,11 +106,16 @@ const config: Config = {
           orange: '#ea580c',
           dark: '#1e293b',
           light: '#f8fafc',
-        }
+        },
+        // Additional colors used in the application
+        'charcoal': '#374151',
+        'ink': '#1f2937',
+        'lime': '#84cc16'
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         display: ['Poppins', 'system-ui', 'sans-serif'],
+        tenor: ['Tenor Sans', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

@@ -34,48 +34,49 @@ export function ServiceCards() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {services.map((service, index) => (
-            <div key={service.slug} className="relative group">
-              {/* Glow effect */}
-              <div className="absolute -inset-2 bg-gradient-to-r from-brand-teal/40 to-brand-emerald/40 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              
-              <Link href={`/services/${service.slug}`} className="block">
+            <div key={service.slug} className="relative group h-full">
+              <div className="absolute inset-0 rounded-2xl pointer-events-none">
+                <div className="absolute -inset-2 bg-gradient-to-r from-brand-teal/30 to-brand-emerald/30 rounded-2xl blur-2xl opacity-0 group-hover:opacity-80 transition-opacity duration-300"></div>
+              </div>
+
+              <Link href={`/services/${service.slug}`} className="block h-full">
                 <Card 
-                  className="card-modern card-hover animate-fade-in-up border-0 overflow-hidden relative z-10 cursor-pointer"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className="card-modern animate-fade-in-up border border-slate-100 overflow-hidden relative z-10 cursor-pointer hover:shadow-xl transition-shadow duration-300 h-full flex flex-col"
+                  style={{ animationDelay: `${index * 0.06}s` }}
                 >
                 <CardHeader className="pb-4 relative">
                   <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-brand-teal/5 to-brand-emerald/5 rounded-bl-3xl"></div>
-                  
-                  <div className="w-16 h-16 bg-gradient-to-br from-brand-teal/10 to-brand-emerald/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                    <span className="text-3xl">{service.icon}</span>
+
+                  <div className="w-14 h-14 bg-gradient-to-br from-brand-teal/10 to-brand-emerald/10 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300">
+                    <span className="text-2xl leading-none">{service.icon}</span>
                   </div>
-                  
-                  <CardTitle className="font-display text-2xl text-slate-900 group-hover:text-brand-teal transition-colors">
+
+                  <CardTitle className="font-display text-xl sm:text-2xl text-slate-900 group-hover:text-brand-teal transition-colors">
                     {service.title}
                   </CardTitle>
-                  
-                  <CardDescription className="text-slate-600 leading-relaxed text-base">
+
+                  <CardDescription className="text-slate-600 leading-relaxed text-sm mt-2">
                     {service.intro}
                   </CardDescription>
                 </CardHeader>
-                
-                <CardContent className="pt-0">
-                  <div className="space-y-6">
+
+                <CardContent className="pt-4 flex-1 flex flex-col">
+                  <div className="space-y-4 flex-1 flex flex-col">
                     <div className="flex flex-wrap gap-2">
-                      {service.features.slice(0, 3).map((feature, index) => (
+                      {service.features.slice(0, 3).map((feature, idx) => (
                         <span
-                          key={index}
-                          className="text-xs bg-slate-100 text-slate-700 px-3 py-1 rounded-full border border-slate-200/50 hover:bg-brand-teal/10 hover:text-brand-teal hover:border-brand-teal/20 transition-all duration-200"
+                          key={idx}
+                          className="text-xs bg-slate-50 text-slate-700 px-3 py-1 rounded-full border border-slate-100 hover:bg-brand-teal/10 hover:text-brand-teal transition-all duration-200"
                         >
                           {feature}
                         </span>
                       ))}
                     </div>
-                    
-                    <div className="w-full flex justify-between items-center text-slate-700 group-hover:text-brand-teal p-4 rounded-xl border border-transparent group-hover:border-brand-teal/20 transition-all duration-300">
-                      <span className="font-semibold">Explore Service</span>
+
+                    <div className="w-full flex items-center justify-between text-slate-700 group-hover:text-brand-teal p-3 rounded-lg border border-transparent group-hover:border-brand-teal/20 transition-all duration-300 mt-auto">
+                      <span className="font-medium">Explore Service</span>
                       <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>

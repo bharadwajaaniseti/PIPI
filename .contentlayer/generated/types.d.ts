@@ -18,22 +18,10 @@ export type CaseStudy = {
   sector: 'pharma' | 'beauty' | 'fmcg' | 'other'
   cover: string
   date: IsoDateTimeString
-  kpis?: string[] | undefined
+  kpis?: any | undefined
   /** MDX file body */
   body: MDX
   slug: string
-}
-
-export type Kpi = {
-  /** File path relative to `contentDirPath` */
-  _id: string
-  _raw: Local.RawDocumentData
-  type: 'Kpi'
-  label: string
-  value: string
-  /** Markdown file body */
-  body: Markdown
-
 }
 
 export type News = {
@@ -59,15 +47,14 @@ export type News = {
 export type AllTypes = DocumentTypes | NestedTypes
 export type AllTypeNames = DocumentTypeNames | NestedTypeNames
 
-export type DocumentTypes = CaseStudy | Kpi | News
-export type DocumentTypeNames = 'CaseStudy' | 'Kpi' | 'News'
+export type DocumentTypes = CaseStudy | News
+export type DocumentTypeNames = 'CaseStudy' | 'News'
 
 export type NestedTypes = never
 export type NestedTypeNames = never
 
 export type DataExports = {
   allDocuments: DocumentTypes[]
-  allKpis: Kpi[]
   allCaseStudies: CaseStudy[]
   allNews: News[]
 }
@@ -90,7 +77,6 @@ declare global {
 
 export type DocumentTypeMap = {
   CaseStudy: CaseStudy
-  Kpi: Kpi
   News: News
 }
 

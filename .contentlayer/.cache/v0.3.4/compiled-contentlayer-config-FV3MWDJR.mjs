@@ -1,13 +1,5 @@
 // contentlayer.config.js
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
-var Kpi = defineDocumentType(() => ({
-  name: "Kpi",
-  filePathPattern: `**/*.mdx`,
-  fields: {
-    label: { type: "string", required: true },
-    value: { type: "string", required: true }
-  }
-}));
 var CaseStudy = defineDocumentType(() => ({
   name: "CaseStudy",
   filePathPattern: `case-studies/**/*.mdx`,
@@ -19,8 +11,8 @@ var CaseStudy = defineDocumentType(() => ({
     cover: { type: "string", required: true },
     date: { type: "date", required: true },
     kpis: {
-      type: "list",
-      of: Kpi
+      type: "json",
+      required: false
     }
   },
   computedFields: {
@@ -50,12 +42,11 @@ var News = defineDocumentType(() => ({
 }));
 var contentlayer_config_default = makeSource({
   contentDirPath: "content",
-  documentTypes: [Kpi, CaseStudy, News]
+  documentTypes: [CaseStudy, News]
 });
 export {
   CaseStudy,
-  Kpi,
   News,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-6MXMSEOM.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-FV3MWDJR.mjs.map
