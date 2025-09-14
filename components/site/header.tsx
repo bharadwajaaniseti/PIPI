@@ -38,10 +38,12 @@ export function Header() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-lime rounded-lg flex items-center justify-center">
-                <span className="text-charcoal font-bold text-lg">P</span>
-              </div>
-              <span className="font-tenor text-xl font-bold text-charcoal">
+              <img 
+                src="/image.png" 
+                alt="PiPi Print & Packaging" 
+                className="h-10 w-auto"
+              />
+              <span className="font-tenor text-xl font-bold text-slate-dark">
                 PiPi Print & Packaging
               </span>
             </Link>
@@ -55,7 +57,7 @@ export function Header() {
                   {item.hasDropdown ? (
                     <div className="relative">
                       <button 
-                        className="flex items-center text-gray-700 hover:text-charcoal font-medium transition-colors"
+                        className="flex items-center text-gray-600 hover:text-deep-teal font-medium transition-colors"
                         onMouseEnter={() => setServicesOpen(true)}
                         onMouseLeave={() => setServicesOpen(false)}
                       >
@@ -75,7 +77,7 @@ export function Header() {
                                 href={child.href}
                                 className="block p-3 rounded-lg hover:bg-gray-50 transition-colors"
                               >
-                                <div className="font-medium text-charcoal mb-1">
+                                <div className="font-medium text-slate-dark mb-1">
                                   {child.name}
                                 </div>
                                 <div className="text-sm text-gray-600">
@@ -90,7 +92,7 @@ export function Header() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="text-gray-700 hover:text-charcoal font-medium transition-colors"
+                      className="text-gray-600 hover:text-deep-teal font-medium transition-colors"
                     >
                       {item.name}
                     </Link>
@@ -103,12 +105,12 @@ export function Header() {
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
             <Link href="/quote">
-              <Button className="bg-charcoal text-white hover:bg-ink">
+              <Button className="bg-deep-teal text-white hover:bg-ocean-blue">
                 Get a Quote
               </Button>
             </Link>
             <Link href="/events">
-              <Button variant="outline" className="border-lime text-lime hover:bg-lime hover:text-charcoal">
+              <Button variant="outline" className="border-vibrant-cyan text-vibrant-cyan hover:bg-vibrant-cyan hover:text-white">
                 Book Meeting
               </Button>
             </Link>
@@ -129,7 +131,7 @@ export function Header() {
                       <div key={item.name}>
                         <Link
                           href={item.href}
-                          className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-charcoal hover:bg-gray-50 rounded-md"
+                          className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-deep-teal hover:bg-gray-50 rounded-md"
                           onClick={() => setIsOpen(false)}
                         >
                           {item.name}
@@ -140,7 +142,7 @@ export function Header() {
                               <Link
                                 key={child.name}
                                 href={child.href}
-                                className="block px-3 py-2 text-sm text-gray-600 hover:text-charcoal hover:bg-gray-50 rounded-md"
+                                className="block px-3 py-2 text-sm text-gray-500 hover:text-deep-teal hover:bg-gray-50 rounded-md"
                                 onClick={() => setIsOpen(false)}
                               >
                                 {child.name}
@@ -153,12 +155,12 @@ export function Header() {
                   </div>
                   <div className="mt-8 space-y-4">
                     <Link href="/quote" onClick={() => setIsOpen(false)}>
-                      <Button className="w-full bg-charcoal text-white hover:bg-ink">
+                      <Button className="w-full bg-deep-teal text-white hover:bg-ocean-blue">
                         Get a Quote
                       </Button>
                     </Link>
                     <Link href="/events" onClick={() => setIsOpen(false)}>
-                      <Button variant="outline" className="w-full border-lime text-lime hover:bg-lime hover:text-charcoal">
+                      <Button variant="outline" className="w-full border-vibrant-cyan text-vibrant-cyan hover:bg-vibrant-cyan hover:text-white">
                         Book Meeting
                       </Button>
                     </Link>

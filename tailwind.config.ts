@@ -51,10 +51,16 @@ const config: Config = {
           '5': 'hsl(var(--chart-5))',
         },
         // Brand colors
-        charcoal: '#111318',
-        ink: '#191E22',
-        lime: '#C9F269',
-        'brand-blue': '#0EA5E9',
+        // New vibrant color palette
+        'deep-teal': '#0D4F4C',
+        'ocean-blue': '#1E40AF',
+        'vibrant-cyan': '#06B6D4',
+        'electric-green': '#10B981',
+        'sunset-orange': '#F59E0B',
+        'coral-pink': '#EC4899',
+        'deep-purple': '#7C3AED',
+        'slate-dark': '#1E293B',
+        'slate-light': '#F8FAFC',
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],

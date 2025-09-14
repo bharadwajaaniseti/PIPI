@@ -12,7 +12,7 @@ export function ServiceCards() {
     <section className="section-padding bg-white">
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="font-tenor text-4xl lg:text-5xl font-bold text-charcoal mb-6">
+          <h2 className="font-tenor text-4xl lg:text-5xl font-bold text-slate-dark mb-6">
             Complete Packaging Solutions
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -25,10 +25,10 @@ export function ServiceCards() {
           {services.map((service) => (
             <Card key={service.slug} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md hover:-translate-y-2">
               <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-lime/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-lime/20 transition-colors">
+                <div className="w-12 h-12 bg-electric-green/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-electric-green/20 transition-colors">
                   <span className="text-2xl">{service.icon}</span>
                 </div>
-                <CardTitle className="font-tenor text-xl text-charcoal group-hover:text-brand-blue transition-colors">
+                <CardTitle className="font-tenor text-xl text-slate-dark group-hover:text-vibrant-cyan transition-colors">
                   {service.title}
                 </CardTitle>
                 <CardDescription className="text-gray-600 leading-relaxed">
@@ -50,7 +50,7 @@ export function ServiceCards() {
                   <Link href={`/services/${service.slug}`}>
                     <Button 
                       variant="ghost" 
-                      className="w-full justify-between text-charcoal hover:text-brand-blue hover:bg-brand-blue/5 group/btn"
+                      className="w-full justify-between text-slate-dark hover:text-vibrant-cyan hover:bg-vibrant-cyan/5 group/btn"
                     >
                       Learn More
                       <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
@@ -64,7 +64,7 @@ export function ServiceCards() {
 
         <div className="text-center mt-12">
           <Link href="/services">
-            <Button size="lg" className="bg-charcoal text-white hover:bg-ink">
+            <Button size="lg" className="bg-deep-teal text-white hover:bg-ocean-blue">
               View All Services
             </Button>
           </Link>

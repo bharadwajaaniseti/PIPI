@@ -36,7 +36,7 @@ export function StatsSection() {
     <section className="section-padding bg-gradient-to-br from-gray-50 to-white">
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="font-tenor text-4xl lg:text-5xl font-bold text-charcoal mb-6">
+          <h2 className="font-tenor text-4xl lg:text-5xl font-bold text-slate-dark mb-6">
             Trusted by Industry Leaders
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -51,13 +51,13 @@ export function StatsSection() {
             return (
               <Card key={index} className="text-center group hover:shadow-lg transition-all duration-300 border-0 shadow-md">
                 <CardContent className="p-8">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-lime/10 rounded-full mb-6 group-hover:bg-lime/20 transition-colors">
-                    <Icon className="h-8 w-8 text-lime" />
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-electric-green/10 rounded-full mb-6 group-hover:bg-electric-green/20 transition-colors">
+                    <Icon className="h-8 w-8 text-electric-green" />
                   </div>
-                  <div className="text-3xl font-bold text-charcoal mb-2 font-tenor">
+                  <div className="text-3xl font-bold text-slate-dark mb-2 font-tenor">
                     {stat.number}
                   </div>
-                  <h3 className="text-lg font-semibold text-charcoal mb-2">
+                  <h3 className="text-lg font-semibold text-slate-dark mb-2">
                     {stat.label}
                   </h3>
                   <p className="text-sm text-gray-600 leading-relaxed">
@@ -71,7 +71,7 @@ export function StatsSection() {
 
         {/* Certifications Strip */}
         <div className="mt-16 p-8 bg-white rounded-2xl shadow-sm">
-          <h3 className="text-center font-tenor text-2xl font-bold text-charcoal mb-8">
+          <h3 className="text-center font-tenor text-2xl font-bold text-slate-dark mb-8">
             Certifications & Standards
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -82,10 +82,10 @@ export function StatsSection() {
               { name: 'Woodland Trust', desc: 'Carbon Capture Partner' }
             ].map((cert, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-charcoal rounded-lg flex items-center justify-center mx-auto mb-3">
-                  <Award className="h-8 w-8 text-lime" />
+                <div className="w-16 h-16 bg-deep-teal rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <Award className="h-8 w-8 text-electric-green" />
                 </div>
-                <h4 className="font-semibold text-charcoal text-sm mb-1">{cert.name}</h4>
+                <h4 className="font-semibold text-slate-dark text-sm mb-1">{cert.name}</h4>
                 <p className="text-xs text-gray-600">{cert.desc}</p>
               </div>
             ))}

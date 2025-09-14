@@ -58,7 +58,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-white text-charcoal font-inter antialiased;
+    @apply bg-slate-light text-slate-dark font-inter antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   h1, h2, h3, h4, h5, h6 {
@@ -91,14 +91,14 @@
   }
   
   .text-gradient {
-    @apply bg-gradient-to-r from-lime to-brand-blue bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-vibrant-cyan to-electric-green bg-clip-text text-transparent;
   }
   
   .btn-primary {
-    @apply bg-charcoal text-white hover:bg-ink transition-colors duration-200 px-6 py-3 rounded-lg font-medium;
+    @apply bg-deep-teal text-white hover:bg-ocean-blue transition-colors duration-200 px-6 py-3 rounded-lg font-medium;
   }
   
   .btn-secondary {
-    @apply bg-lime text-charcoal hover:bg-lime/90 transition-colors duration-200 px-6 py-3 rounded-lg font-medium;
+    @apply bg-electric-green text-white hover:bg-electric-green/90 transition-colors duration-200 px-6 py-3 rounded-lg font-medium;
   }
 }
