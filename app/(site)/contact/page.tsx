@@ -253,11 +253,17 @@ export default function ContactPage() {
         <div className="mt-16">
           <Card>
             <CardContent className="p-0">
-              <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
-                <p className="text-gray-600">Interactive Map Placeholder</p>
+              <div className="h-64 rounded-lg overflow-hidden">
+                <iframe
+                  title="PiPi Print & Packaging - Leicester"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=-1.1145304043476154%2C52.64503842809493%2C-1.1105304043476154%2C52.64903842809493&layer=mapnik&marker=52.64703842809493%2C-1.1125304043476154"
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                />
               </div>
             </CardContent>
           </Card>
+          <p className="text-sm text-gray-500 mt-2">Map data © OpenStreetMap contributors</p>
         </div>
       </div>
     </div>

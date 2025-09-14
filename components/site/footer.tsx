@@ -139,7 +139,7 @@ export function Footer() {
                 Get Quote
               </Link>
               <Link 
-                href="/events"
+                href="/contact"
                 className="block text-center border-2 border-slate-600 text-slate-300 px-6 py-3 rounded-xl font-semibold hover:border-brand-teal hover:text-brand-teal hover:scale-105 transition-all duration-300"
               >
                 Book Meeting
