@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -12,13 +12,30 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const closeTimeoutRef = useRef<number | null>(null);
+
+  const clearCloseTimeout = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+  };
+
+  const scheduleClose = (delay = 300) => {
+    clearCloseTimeout();
+    // window.setTimeout returns a number in browsers
+    closeTimeoutRef.current = window.setTimeout(() => setServicesOpen(false), delay);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearCloseTimeout();
+    };
   }, []);
 
   const navigation = [
@@ -74,23 +91,40 @@ export function Header() {
               {navigation.map((item) => (
                 <div key={item.name} className="relative group">
                   {item.hasDropdown ? (
-                    <div className="relative">
-                      <button 
+                    <div
+                      className="relative"
+                      onMouseEnter={() => { clearCloseTimeout(); setServicesOpen(true); }}
+                      onMouseLeave={() => scheduleClose()}
+                    >
+                      <Link
+                        href={item.href}
+                        role="button"
+                        tabIndex={0}
+                        aria-haspopup="menu"
+                        aria-expanded={servicesOpen}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            clearCloseTimeout();
+                            setServicesOpen((s) => !s);
+                          } else if (e.key === 'Escape') {
+                            setServicesOpen(false);
+                          }
+                        }}
                         className={`flex flex-col items-center px-4 py-2 font-medium transition-colors rounded-lg hover:bg-slate-100/50 ${isActive(item.href, true) ? 'text-brand-teal' : 'text-slate-700 hover:text-brand-teal'}`}
-                        onMouseEnter={() => setServicesOpen(true)}
-                        onMouseLeave={() => setServicesOpen(false)}
                       >
                         <div className="flex items-center">
                           <span>{item.name}</span>
-                          <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
+                          <ChevronDown className="ml-1 h-4 w-4 transition-transform" />
                         </div>
                         <span className={`mt-2 block h-0.5 rounded-full transition-all ${isActive(item.href, true) ? 'w-6 bg-gradient-to-r from-brand-teal to-brand-emerald opacity-100' : 'w-0 bg-transparent'}`}></span>
-                      </button>
+                      </Link>
                       {servicesOpen && (
                         <div 
-                          className="absolute top-full left-0 w-96 bg-white rounded-2xl shadow-2xl border border-slate-200/50 p-6 z-50 animate-fade-in-down"
-                          onMouseEnter={() => setServicesOpen(true)}
-                          onMouseLeave={() => setServicesOpen(false)}
+                          className="absolute top-full left-0 mt-2 w-96 bg-white rounded-2xl shadow-2xl border border-slate-200/50 p-6 z-50 animate-fade-in-down"
+                          onMouseEnter={() => { clearCloseTimeout(); setServicesOpen(true); }}
+                          onMouseLeave={() => scheduleClose()}
+                          role="menu"
                         >
                           <div className="grid gap-3">
                             {item.children?.map((child) => (

@@ -28,7 +28,7 @@ export function HeroSplit() {
               
               <h1 className="font-display text-6xl lg:text-7xl font-bold text-slate-900 leading-tight">
                 Premium
-                <span className="text-gradient block"> Packaging</span>
+                <span className="block text-brand-teal"> Packaging</span>
                 Solutions
               </h1>
               
