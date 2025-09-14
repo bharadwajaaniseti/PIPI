@@ -1,5 +1,14 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 
+export const Kpi = defineDocumentType(() => ({
+  name: 'Kpi',
+  filePathPattern: `**/*.mdx`,
+  fields: {
+    label: { type: 'string', required: true },
+    value: { type: 'string', required: true }
+  }
+}))
+
 export const CaseStudy = defineDocumentType(() => ({
   name: 'CaseStudy',
   filePathPattern: `case-studies/**/*.mdx`,
@@ -12,13 +21,7 @@ export const CaseStudy = defineDocumentType(() => ({
     date: { type: 'date', required: true },
     kpis: { 
       type: 'list',
-      of: {
-        type: 'object',
-        fields: {
-          label: { type: 'string', required: true },
-          value: { type: 'string', required: true }
-        }
-      }
+      of: Kpi
     }
   },
   computedFields: {
@@ -50,5 +53,5 @@ export const News = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'content',
-  documentTypes: [CaseStudy, News],
+  documentTypes: [Kpi, CaseStudy, News],
 })
