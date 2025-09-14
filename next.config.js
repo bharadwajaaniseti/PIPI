@@ -10,6 +10,9 @@ const nextConfig = {
   experimental: {
     mdxRs: true,
   },
+  env: {
+    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'https://your-netlify-site.netlify.app',
+  },
 };
 
 module.exports = withContentlayer(nextConfig);

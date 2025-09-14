@@ -24,22 +24,27 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    
     try {
-      const res = await fetch('/api/contact', {
+      const formDataToSend = new FormData();
+      formDataToSend.append('form-name', 'contact');
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('company', formData.company);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('phone', formData.phone);
+      formDataToSend.append('subject', formData.subject);
+      formDataToSend.append('message', formData.message);
+
+      const response = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: formDataToSend,
       });
 
-      const json = await res.json();
-      if (!res.ok) {
-        console.error('Send error', json);
-        alert(json.error || 'Failed to send message');
-        setIsSubmitting(false);
-        return;
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        alert('Failed to send message. Please try again.');
       }
-
-      setIsSubmitted(true);
     } catch (err) {
       console.error('Send exception', err);
       alert('An error occurred while sending your message. Please try again later.');
@@ -177,7 +182,16 @@ export default function ContactPage() {
                 <CardTitle className="font-tenor text-2xl">Send us a Message</CardTitle>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form 
+                  name="contact" 
+                  method="POST" 
+                  data-netlify="true" 
+                  data-netlify-honeypot="bot-field"
+                  onSubmit={handleSubmit} 
+                  className="space-y-6"
+                >
+                  {/* Hidden input for Netlify Forms */}
+                  <input type="hidden" name="form-name" value="contact" />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <Label htmlFor="name">Full Name *</Label>

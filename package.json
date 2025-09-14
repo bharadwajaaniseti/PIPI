@@ -80,6 +80,7 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@types/leaflet": "^1.9.20"
+    "@types/leaflet": "^1.9.20",
+    "@types/nodemailer": "^7.0.1"
   }
 }

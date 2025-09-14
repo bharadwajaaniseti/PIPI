@@ -88,11 +88,44 @@ export default function QuotePage() {
   const handleSubmit = async () => {
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append('form-name', 'quote');
+      
+      // Add all form data
+      formDataToSend.append('productType', formData.productType);
+      formDataToSend.append('customProductType', formData.customProductType);
+      formDataToSend.append('length', formData.dimensions.length);
+      formDataToSend.append('width', formData.dimensions.width);
+      formDataToSend.append('height', formData.dimensions.height);
+      formDataToSend.append('unit', formData.dimensions.unit);
+      formDataToSend.append('quantity', formData.quantity);
+      formDataToSend.append('substrate', formData.substrate);
+      formDataToSend.append('finishes', formData.finishes.join(', '));
+      formDataToSend.append('colors', formData.colors);
+      formDataToSend.append('specialRequirements', formData.specialRequirements);
+      formDataToSend.append('contactName', formData.contactName);
+      formDataToSend.append('company', formData.company);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('phone', formData.phone);
+      formDataToSend.append('deadline', formData.deadline);
+
+      const response = await fetch('/', {
+        method: 'POST',
+        body: formDataToSend,
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        alert('Failed to submit quote request. Please try again.');
+      }
+    } catch (err) {
+      console.error('Submit exception', err);
+      alert('An error occurred while submitting your request. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -514,6 +547,33 @@ export default function QuotePage() {
           )}
         </div>
       </div>
+
+      {/* Hidden Netlify Form */}
+      <form 
+        name="quote" 
+        method="POST" 
+        data-netlify="true" 
+        data-netlify-honeypot="bot-field"
+        style={{ display: 'none' }}
+      >
+        <input type="hidden" name="form-name" value="quote" />
+        <input type="text" name="productType" />
+        <input type="text" name="customProductType" />
+        <input type="text" name="length" />
+        <input type="text" name="width" />
+        <input type="text" name="height" />
+        <input type="text" name="unit" />
+        <input type="text" name="quantity" />
+        <input type="text" name="substrate" />
+        <input type="text" name="finishes" />
+        <input type="text" name="colors" />
+        <input type="text" name="specialRequirements" />
+        <input type="text" name="contactName" />
+        <input type="text" name="company" />
+        <input type="email" name="email" />
+        <input type="tel" name="phone" />
+        <input type="date" name="deadline" />
+      </form>
     </div>
   );
 }
